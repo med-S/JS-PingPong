@@ -188,5 +188,5 @@ startBtn.addEventListener('click', function() {
 startGame();
 
 restartBtn.addEventListener("click", function() {
-    startGame();
+    location.reload();
 });
