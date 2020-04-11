@@ -176,13 +176,17 @@ function game() {
     render();
 }
 
+function startGame(){
 startBtn.addEventListener('click', function() {
     startBtn.style.display = "none";
     restartBtn.style.display = "block";
     setInterval(game, 1000 / 50); //Call the game 50 times per seconde
 
 });
+}
+
+startGame();
 
 restartBtn.addEventListener("click", function() {
-    location.reload();
+    startGame();
 });
