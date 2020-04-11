@@ -175,18 +175,33 @@ function game() {
     update();
     render();
 }
+let a = '';
 
-function startGame(){
 startBtn.addEventListener('click', function() {
     startBtn.style.display = "none";
     restartBtn.style.display = "block";
-    setInterval(game, 1000 / 50); //Call the game 50 times per seconde
+    user.score = 0;
+    com.score = 0;
+    clearInterval(a);
+    a = setInterval(game, 1000 / 50); //Call the game 50 times per seconde
 
 });
-}
 
-startGame();
 
 restartBtn.addEventListener("click", function() {
-    location.reload();
+    startBtn.style.display = "block";
+    restartBtn.style.display = "none";
+    resetBall();
+    user.score = 0;
+    com.score = 0;
+    clearInterval(a);
+    startBtn.addEventListener('click', function() {
+        startBtn.style.display = "none";
+        restartBtn.style.display = "block";
+        user.score = 0;
+        com.score = 0;
+        clearInterval(a);
+        a = setInterval(game, 1000 / 50); //Call the game 50 times per seconde
+
+    });
 });
